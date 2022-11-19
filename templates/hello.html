@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{{ super() }}
+{% block main %}
+    {% if not name %}
+        {% set name = 'Rekruto' %}
+    {% endif %}
+    {% if not message %}
+        {% set message = 'Давай дружить' %}
+    {% endif %}
+    <h1>Hello {{ name }}! {{ message }}!</h1>
+    <form action="/hello" method="get">
+        <label>
+            Имя <input type="text" name="name">
+        </label>
+        <label>
+            Сообщение <input type="text" name="message">
+        </label>
+        <label>
+            Отправить <input type="submit" value="Отправить">
+        </label>
+    </form>
+{% endblock %}
